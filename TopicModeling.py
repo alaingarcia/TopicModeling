@@ -31,7 +31,9 @@ if __name__ == '__main__':
     stop_words = stopwords.words('english')
 
     # Data
-    data = pd.read_csv('QueryResults.csv')
+    q = 150
+    t = 150
+    data = pd.read_csv('../data/query-results/QueryResults-{}q-{}t.csv'.format(q, t))
     posts = data['Body'].tolist()
 
     # Remove HTML tags
@@ -176,7 +178,7 @@ if __name__ == '__main__':
     plt.xlabel("Num Topics")
     plt.ylabel("Coherence score")
     plt.legend(("coherence_values"), loc='best')
-    plt.savefig('{}q-{}t.png')
+    plt.savefig('{}q-{}t.png'.format(q,t))
 
 
     # Print the coherence scores
